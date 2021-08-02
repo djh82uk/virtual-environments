@@ -33,7 +33,14 @@ resourcegroup   = "${azurerm_resource_group.RG1.name}"
 subnet_name     = "packer-subnet"
 addrprefixes    = ["10.0.2.0/24"]
 }
-  
+
+module "NSG"{
+source = "../Modules/NSG/"
+nsg_name       = "Packer-NSG"
+resourcegroup   = "${azurerm_resource_group.RG1.name}"
+homeip    = 81.99.9.160
+}
+
   
 module "VM"{
 source = "../Modules/Linux Virtual Machine/"
