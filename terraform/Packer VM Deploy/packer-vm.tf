@@ -38,7 +38,7 @@ module "NSG"{
 source = "../Modules/NSG/"
 nsg_name       = "Packer-NSG"
 resourcegroup   = "${azurerm_resource_group.RG1.name}"
-homeip    = ["81.99.9.160/32"]
+homeip    = "81.99.9.160"
 }
 
   
