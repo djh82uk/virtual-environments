@@ -12,3 +12,4 @@ variable "image_offer" {}
 variable "image_sku" {}
 variable "image_version" {}
 variable "disable_password_auth" {default = true}
+variable  "network_interface_ids" {}
