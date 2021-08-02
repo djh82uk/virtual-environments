@@ -1,5 +1,3 @@
-
-
 resource "azurerm_linux_virtual_machine" "VM1" {
   name                = "${var.vm_name}"
   resource_group_name = "${var.resourcegroup}"
@@ -9,7 +7,7 @@ resource "azurerm_linux_virtual_machine" "VM1" {
   admin_username      = "${var.vm_admin_user}"
   admin_password      = "${var.vm_admin_pass}"    
   network_interface_ids = [
-    azurerm_network_interface.VM1.id,
+    "${var.network_interface_ids}"
   ]
 
 
