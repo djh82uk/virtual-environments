@@ -3,6 +3,7 @@ resource "azurerm_network_security_group" "Packer" {
   location            = "${var.location}"
   resource_group_name = "${var.resourcegroup}"
 
+}
   security_rule {
     name                       = "ssh_home"
     priority                   = 100
@@ -14,4 +15,3 @@ resource "azurerm_network_security_group" "Packer" {
     source_address_prefix      = "${var.homeip}"
     destination_address_prefix = "*"
   }
-
