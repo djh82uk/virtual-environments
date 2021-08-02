@@ -1,14 +1,4 @@
-resource "azurerm_network_interface" "VM1" {
-  name                = "${var.vm_nic_name}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resourcegroup}"
 
-  ip_configuration {
-    name                          = "${var.ip_name}"
-    subnet_id                     = "${var.subnet_id}"
-    private_ip_address_allocation = "${var.addr_allocation}"
-  }
-}
 
 resource "azurerm_linux_virtual_machine" "VM1" {
   name                = "${var.vm_name}"
