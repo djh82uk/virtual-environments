@@ -3,5 +3,5 @@ variable "location" {default = "west europe"}
 variable "resourcegroup" {}
 variable "addr_allocation" {default = "Dynamic"}
 variable "subnet_id" {}
-variable "public_ip_address_id" {default = NULL}
+variable "public_ip_address_id" {}
 
