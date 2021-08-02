@@ -52,7 +52,7 @@ source = "../Modules/NIC/"
 vm_nic_name           = "Packer-Build-NIC"  
 resourcegroup   = "${azurerm_resource_group.RG1.name}"
 subnet_id             = "${module.Subnet.subnetid}"
-public_ip_address_id  = azurerm_public_ip.pip.id
+public_ip_address_id  = "${module.PIP.pip.id}"
 }
 
 
@@ -63,7 +63,7 @@ resourcegroup         = "${azurerm_resource_group.RG1.name}"
 location              = "${azurerm_resource_group.RG1.location}"
 vm_name               = "Packer-Build-VM-001"  
 vm_size               = "Standard_B2s" 
-network_interface_ids = azurerm_network_interface.NIC.id
+network_interface_ids = ["${module.NIC.id}",]
 disable_password_auth = false
 vm_admin_user         = "#{admin_user}#" 
 vm_admin_pass         = "#{admin_pass}#" 
