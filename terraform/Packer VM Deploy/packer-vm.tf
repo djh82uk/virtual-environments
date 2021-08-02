@@ -53,7 +53,7 @@ vm_nic_name           = "Packer-Build-NIC"
 resourcegroup   = "${azurerm_resource_group.RG1.name}"
 ip_name               = "Packer-Build-IP" 
 subnet_id             = "${module.Subnet.subnetid}"
-public_ip             = "${module.PIP.pip.id}"
+public_ip_address_id  = "${module.PIP.pip.id}"
 }
 
 
@@ -62,10 +62,9 @@ module "VM"{
 source = "../Modules/Linux Virtual Machine/"
 resourcegroup         = "${azurerm_resource_group.RG1.name}"
 location              = "${azurerm_resource_group.RG1.location}"
-
-
 vm_name               = "Packer-Build-VM-001"  
 vm_size               = "Standard_B2s" 
+vm_nic_name           = "${module.NIC.vm_nic_name}"
 disable_password_auth = false
 vm_admin_user         = "#{admin_user}#" 
 vm_admin_pass         = "#{admin_pass}#" 
