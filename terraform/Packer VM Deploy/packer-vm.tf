@@ -41,19 +41,7 @@ resourcegroup   = "${azurerm_resource_group.RG1.name}"
 homeip    = "81.99.9.160"
 }
 
-module "PIP"{
-source = "../Modules/PublicIP/"
-prefix       = "Packer"
-resourcegroup   = "${azurerm_resource_group.RG1.name}"
-}
 
-module "NIC"{
-source = "../Modules/NIC/"
-vm_nic_name           = "Packer-Build-NIC"  
-resourcegroup   = "${azurerm_resource_group.RG1.name}"
-subnet_id             = module.Subnet.subnetid
-public_ip_address_id  = "${module.PIP.pip.id}"
-}
 
 
   
@@ -74,6 +62,20 @@ image_offer           = "UbuntuServer"
 image_sku             = "18.04-LTS"
 image_version         = "latest"
 
+}
+  
+module "PIP"{
+source = "../Modules/PublicIP/"
+prefix       = "Packer"
+resourcegroup   = "${azurerm_resource_group.RG1.name}"
+}
+
+module "NIC"{
+source = "../Modules/NIC/"
+vm_nic_name           = "Packer-Build-NIC"  
+resourcegroup   = "${azurerm_resource_group.RG1.name}"
+subnet_id             = module.Subnet.subnetid
+public_ip_address_id  = "${module.PIP.pip.id}"
 }
 
 
