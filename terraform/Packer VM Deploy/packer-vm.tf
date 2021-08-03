@@ -76,7 +76,7 @@ source = "../Modules/NIC/"
 vm_nic_name           = "Packer-Build-NIC"  
 resourcegroup   = "${azurerm_resource_group.RG1.name}"
 subnet_id             = module.Subnet.subnetid
-public_ip_address_id  = {module.PIP.pip.id"
+public_ip_address_id  = module.PIP.pip.id
 }
 
 
